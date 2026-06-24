@@ -45,7 +45,6 @@ function Sidebar({ denySidebar, elementsRef }) {
       });
 
       if (res.status === 401) {
-        console.log("Coudn't load: 401");
         setIsLoggedIn(false);
         localStorage.removeItem("token");
         toast.warn("Please login to continue");
@@ -85,7 +84,7 @@ function Sidebar({ denySidebar, elementsRef }) {
       onClick={handleCloseSidebar}
     >
       <div className={`bg-zinc-800 opacity-100 h-full p-3
-                        w-[80%] lg:w-[30%] 
+                        w-[80%] sm:w-[400px]
                         shadow-lg
                         flex flex-col
                         transition-all ease-in-out duration-300 transform ${isOpening ? 'translate-x-0' : '-translate-x-full'}

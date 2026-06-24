@@ -12,7 +12,6 @@ import { Generate_Reasponse_API, Get_Chats_API } from '../constants/env';
 export default function Home() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [query, setQuery] = useState("");
-  const scrollContainerRef = useRef(null);
   const elementsRef = useRef([]);
   const textareaRef = useRef(null);
   const {
@@ -34,7 +33,7 @@ export default function Home() {
 
     const token = localStorage.getItem("token");
 
-    if (!token && chat.length) {
+    if (!token) {
       toast.warn("Token not found");
       setIsLoggedIn(false);
       return;
@@ -93,7 +92,6 @@ export default function Home() {
 
     if (isLoadingAns) return;
 
-    toast.warn("requsting ai")
     const question = query.trim();
     if (!question) return;
 

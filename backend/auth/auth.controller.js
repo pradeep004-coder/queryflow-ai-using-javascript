@@ -38,7 +38,7 @@ export const signupController = async (req, res) => {
             token: jwtToken
         });
     } catch (err) {
-        console.log("error at signup controller: ", err);
+        console.error("error at signup controller: ", err);
         return res.status(500).json({ message: 'internal server error', success: false });
     }
 }
@@ -83,7 +83,7 @@ export const loginController = async (req, res) => {
             token: jwtToken
         });
     } catch (err) {
-        console.log("error at login controller: ", err);
+        console.error("error at login controller: ", err);
         return res.status(500).json({ message: 'internal server error', success: false });
     }
 }

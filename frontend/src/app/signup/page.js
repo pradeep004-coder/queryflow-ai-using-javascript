@@ -26,7 +26,15 @@ export default function Singup() {
         return capitalizedName.join(' ');
     }
 
+    const handleEmailInput = (e) => {
+    e.target.value = e.target.value.toLowerCase();
+}
 
+    
+        const togglePasswordVisibility = (e) => {
+            e.preventDefault();
+            setShowPassword(!showPassword);
+        }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,6 +45,7 @@ export default function Singup() {
 
         if (!name) return toast.warning("Enter name!!");
         if (!nameRegex.test(name)) return toast.warning("Invalid name!!");
+        if (!name.includes(" ")) return toast.warning("Enter full name")
         if (name.length < 5) return toast.warning("Name must be atleast 5 characters long!!");
         if (!email) return toast.warning("Enter email!!");
         if (!emailRegex.test(email)) return toast.warning("Invalid email!!");
@@ -47,7 +56,6 @@ export default function Singup() {
 
         if (
             !isSigning &&
-            name.includes(" ") &&
             email.length > 0 &&
             password.length > 5
         ) {
@@ -71,8 +79,6 @@ export default function Singup() {
                 password,
                 availableChats
             };
-
-            console.log(body);
 
             try {
                 const res = await fetch(Signup_API, {
@@ -104,15 +110,11 @@ export default function Singup() {
 
             } catch (error) {
                 toast.error("Signup went wrong!!");
+                console.error(error);
             } finally {
                 setIsSigning(false);
             }
         }
-    }
-
-    const togglePasswordVisibility = (e) => {
-        e.preventDefault();
-        setShowPassword(!showPassword);
     }
 
     return (
@@ -124,7 +126,7 @@ export default function Singup() {
                 </div>
                 <div className="flex flex-col mb-4">
                     <label>Email address*:</label>
-                    <input className='border-1 p-1 px-2 rounded-md' placeholder=" enter email" ref={emailRef} />
+                    <input className='border-1 p-1 px-2 rounded-md' placeholder=" enter email" ref={emailRef} onInput={handleEmailInput} />
                 </div>
                 <div className="flex flex-col">
                     <label>Password*:</label>

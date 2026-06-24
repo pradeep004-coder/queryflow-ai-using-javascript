@@ -329,7 +329,7 @@ function ChatSection({ elementsRef }) {
                     animate={{ y: 0, opacity: 1,  scale: 1 }}
                     exit={{ y: 25, opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.2 }}
-                    className="w-full fixed bottom-25 flex justify-center"
+                    className="w-full fixed bottom-25 flex justify-center xl:-translate-x-33"
                 >
                     <button className="rounded-full bg-zinc-800 text-[#0a0a0a] p-2 cursor-pointer" onClick={scrollToBottom}>
                         <GoArrowDown size={16} />

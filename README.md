@@ -1,7 +1,7 @@
 
 # **QueryFlow – AI Chat Assistant**
 
-QueryFlow is an AI-powered chat application built with **Next.js**, **Node.js**, and **Gemini AI API**, designed for fast, intelligent, and seamless query handling.
+QueryFlow is an AI-powered chat application built with **Next.js** and **Express.js**, designed for fast, intelligent, and seamless query handling.
 It provides real-time conversational responses, secure user accounts, rich UI/UX features, and persistent chat storage.
 
 🔗 **Live Demo:** [https://query-flow-ai-red.vercel.app/](https://query-flow-ai-red.vercel.app/)
@@ -16,7 +16,6 @@ It provides real-time conversational responses, secure user accounts, rich UI/UX
 * React
 * Tailwind CSS
 * HTML, CSS, JavaScript
-* Gemini AI API
 * Syntax Highlighting + Markdown Rendering
 
 ### **Backend**
@@ -43,14 +42,17 @@ It provides real-time conversational responses, secure user accounts, rich UI/UX
 * **User Authentication System**
   Secure login/sign-up with token-based authentication.
 
-* **Automatic Login Persistence (24 Hours)**
-  No need to re-login if the user revisits within 24 hours on the same device.
+* **Automatic Login Persistence (3 Days)**
+  No need to re-login if the user revisits within 3 Days on the same device.
 
 * **Chat Storage**
   All chats are stored and loaded from MongoDB so users never lose progress.
 
 * **Navigate to Any Query/Response Instantly**
   Jump to any part of the conversation with smooth scroll anchoring.
+
+* **Edit Query**
+  Edit any query as many times as needed. Changes affect only the targeted query and its regenerated response; all subsequent chats remain intact.
 
 ---
 
@@ -78,22 +80,28 @@ It provides real-time conversational responses, secure user accounts, rich UI/UX
 ### **Backend**
 
 Backend/
-│── Controllers/
-│   ├── AuthController.js
-│   ├── ChatController.js
+│── auth/
+│   ├── auth.controller.js
+│   ├── auth.middleware.js
+│   ├── auth.route.js
+│   ├── auth.schema.js
 │
-│── Middlewares/
-│   ├── AuthValidation.js
-│   ├── ChatMiddleware.js
+│── chat/
+│   ├── chat.controller.js
+│   ├── chat.middleware.js
+│   ├── chat.model.js
+│   ├── chat.route.js
+│   ├── chat.schema.js
+│   ├── chat.service.js
 │
 │── Models/
-│   ├── chat.js
 │   ├── db.js
-│   ├── user.js
 │
-│── Routes/
-│   ├── AuthRouter.js
-│   ├── ChatRouter.js
+│── user/
+│   ├── user.model.js
+|
+│── utils/
+│   ├── aiService.js
 │
 │── index.js
 │── package.json
@@ -116,27 +124,22 @@ Frontend/
 │   │
 │   ├── components/
 │   │   ├── Answers.jsx
+│   │   ├── AnswerLine.jsx
 │   │   ├── ChatSection.jsx
-│   │   ├── Code.jsx
-│   │   ├── Collapsible.jsx
 │   │   ├── ConfirmLogout.jsx
 │   │   ├── DateBadge.jsx
 │   │   ├── InputSection.jsx
-│   │   ├── MarkDown.jsx
 │   │   ├── Navbar.jsx
 │   │   ├── Question.jsx
+│   │   ├── QuestionEditor.jsx
 │   │   ├── Sidebar.jsx
 │   │   └── WelcomeContent.jsx
 │   │
 │   ├── constants/
-<<<<<<< HEAD
 │   │   └── env.js
-=======
-│   │   └── Constants.js
->>>>>>> 870d8e432299fcb70026c2ed47911ce1b2be21a5
 │   │
 │   ├── utils/
-│   │   └── Helper.js
+│   │   └── helper.js
 │
 │── globals.css
 │── package.json
@@ -151,7 +154,7 @@ Frontend/
 3. Query is sent Gemini AI API.
 4. Response returns in real-time and gets rendered with Markdown & syntax highlighting.
 5. Chat is stored in MongoDB for future sessions.
-6. User can navigate, collapse, copy, and manage responses easily.
+6. User can edit, copy, navigate, collapse and manage responses easily.
 
 ---
 

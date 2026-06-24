@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 dotenv.config(); 
 
 const mongoURL = process.env.mongo_conn;
-// process.env.mongo_conn;
 
 const connectDB = async () => {
   try {

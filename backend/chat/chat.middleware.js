@@ -53,7 +53,7 @@ export const askAIMiddleware = (req, res, next) => {
 
         next();
     } catch (error) {
-        console.log("Error at Ask AI middleware: ", error);
+        console.error("Error at Ask AI middleware: ", error);
         return res.status(500).json({ message: 'Internal server error', success: false, error });
     }
 
@@ -87,7 +87,7 @@ export const editChatMiddleware = (req, res, next) => {
         next();
 
     } catch (error) {
-        console.log("Error at Edit Chat middleware: ", error);
+        console.error("Error at Edit Chat middleware: ", error);
         return res.status(500).json({ message: 'Internal server error', success: false, error });
     }
 

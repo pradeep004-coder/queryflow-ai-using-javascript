@@ -86,7 +86,7 @@ export default function QuetionEditor({ index, defaultValue }) {
                 answer = data.answer || "";
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             toast.error("Something went wrong");
         } finally {
             setChat(prev =>

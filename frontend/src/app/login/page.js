@@ -65,7 +65,6 @@ export default function Login() {
                 }
 
                 const data = await res.json();
-                console.log("data: ", data);
                 if (data?.token) {
                     localStorage.setItem("token", data.token);
 
@@ -81,6 +80,7 @@ export default function Login() {
 
             } catch (error) {
                 toast.error("Something went wrong!!");
+                console.error(error);
             } finally {
                 setIsLogging(false);
             }

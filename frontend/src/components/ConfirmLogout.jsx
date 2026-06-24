@@ -35,7 +35,7 @@ function ConfirmLogout({setShow, handleCloseSidebar}) {
 
   return (
     <div className='h-screen w-screen fixed top-0 left-0 bg-black/75 flex justify-center items-center' onClick={(e) => e.stopPropagation()}>
-        <div className={`w-[90%] md:w-100px bg-zinc-900 py-4 px-6 rounded-2xl shadow-md ${isOpen ? "scale-100" : "scale-0"} transition-all duration-300`}>
+        <div className={`w-max-[90%] sm:w-100px bg-zinc-900 py-4 px-6 rounded-2xl shadow-md ${isOpen ? "scale-100" : "scale-0"} transition-all duration-300`}>
             <h2 className='text-white text-xl'>Log out?</h2>
             <p className='text-white text-md'>You’ll be logged out of this device. You can log back anytime.</p>
             <div className='flex gap-3 justify-end mt-4'>

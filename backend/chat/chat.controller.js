@@ -32,7 +32,7 @@ export const getChatsController = async (req, res) => {
 
 
     } catch (error) {
-        console.error("Error at Get Chat Controller: ", error);
+        // console.error("Error at Get Chat Controller: ", error);
         return res.status(500).json({ success: false, message: 'internal server error', error });
     }
 }
@@ -62,7 +62,7 @@ export const askAIController = async (req, res) => {
         await new_row.save();
         return res.status(201).json({ success: true, answer: aiResponse, chatId: new_row._id })
     } catch (error) {
-        console.error("Error at Ask AI Controller: ", error);
+        // console.error("Error at Ask AI Controller: ", error);
         return res.status(500).json({ message: 'Internal server error', success: false, error });
     }
 }

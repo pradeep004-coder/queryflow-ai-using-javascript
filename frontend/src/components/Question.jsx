@@ -44,8 +44,11 @@ function Question({ question, timestamp, index, active_version, onVersionChange 
 
   return (
     <>
-      <p className="text-right text-xs my-1">({index + 1}/{chat.length})</p>
-      <div className="max-w-[75%] w-fit ml-auto bg-zinc-800 p-3 rounded-2xl rounded-tr-none whitespace-normal">
+      {/* <p className="text-right text-xs my-1">({index + 1}/{chat.length})</p> */}
+      <div className="max-w-[75%] w-fit ml-auto bg-zinc-800 px-3 py-1 rounded-2xl rounded-tr-none whitespace-normal">  
+    <div className="w-fit ml-auto px-1 text-xs rounded-full bg-black/25 text-[10px] backdrop-blur">
+  {index + 1} of {chat.length}
+</div>
         <pre className="text-zinc-200 text-sm whitespace-normal">{question}</pre>
         <div className="text-xs text-gray-400 text-right mt-1 select-none">
           {new Date(timestamp).toLocaleTimeString([], {
