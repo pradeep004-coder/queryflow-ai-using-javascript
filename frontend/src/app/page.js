@@ -34,7 +34,6 @@ export default function Home() {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      toast.warn("Token not found");
       setIsLoggedIn(false);
       return;
     }

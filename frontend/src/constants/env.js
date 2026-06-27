@@ -1,4 +1,4 @@
-const Backend_API = "http://localhost:8000";
+const Backend_API = "https://queryflow-hmp0.onrender.com";
 
 export const Login_API = Backend_API + "/api/auth/login";
 

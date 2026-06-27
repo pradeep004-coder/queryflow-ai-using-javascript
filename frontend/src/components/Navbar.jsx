@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import { ChatContext } from "../app/context/Context.js";
-import { useRouter } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
+import Link from 'next/link';
 
 export default function Navbar({ openSidebar }) {
   const { isLoggedIn } = useContext(ChatContext);
-  const router = useRouter();
 
   return (
     <nav className="grid grid-cols-3 bg-zinc-900 px-2 py-1 shadow-m z-20">
@@ -25,7 +24,6 @@ export default function Navbar({ openSidebar }) {
 
       {/* CENTER: Logo */}
       <h2
-        onClick={() => router.push("/")}
         className=" font-semibold justify-self-center flex-grow select-none hover:text-white transition"
       >
         QueryFlow
@@ -34,13 +32,13 @@ export default function Navbar({ openSidebar }) {
       {/* RIGHT: Auth Actions */}
       <div className="justify-self-end">
         {!isLoggedIn && (
-          <button
+          <Link
+            href="/login" 
             type="button"
             className="border border-zinc-400 rounded-xl px-1 text-sm cursor-pointer hover:bg-zinc-800 transition duration-200 ease-in-out"
-            onClick={() => router.push("/login")}
           >
             Login
-          </button>
+          </Link>
         )}
       </div>
 
