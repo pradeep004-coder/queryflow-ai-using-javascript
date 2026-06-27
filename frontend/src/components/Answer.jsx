@@ -25,7 +25,7 @@ export default function Answer({ answer, status, isLast }) {
     return (
         <div className={`${isOpen? "mb-4" : "mb-12"}`}>
             {status === "generating" &&
-                <div className="h-[80vh] text-zinc-400 animate-dots">
+                <div className="h-[60vh] text-zinc-400 animate-dots">
                     Answering
                     <span className="dot-1">.</span>
                     <span className="dot-2">.</span>
